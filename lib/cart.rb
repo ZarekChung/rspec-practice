@@ -8,13 +8,13 @@ class Cart
         total = 0
 
         while @ordered_items.size > 0
-        if @ordered_items.size == 2
-            total = total + 2 * PRICE * 0.95                      
+        if @ordered_items.size == 3
+            total = total + 3 * PRICE * 0.90  
+        elsif @ordered_items.size == 2
+            total = total + 2 * PRICE * 0.95                
         else
             total = total +  PRICE   
         end 
-
-        
         @ordered_items = @ordered_items.map{ |i| i -= 1 } # 刪除已計算過的書籍
         @ordered_items = @ordered_items.delete_if{ |i| i == 0 }
     end
